@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Học Trực Tuyến HUFLIT</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brandBlue: '#004b87',
+                        brandYellow: '#ffb800',
+                        navBg: '#374151', /* Tailwind gray-700 approx */
+                        bodyBg: '#f3f4f6', /* Tailwind gray-100 */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for the background image effect */
+        .bg-landscape {
+            background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2064&auto=format&fit=crop'); /* Placeholder landscape image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .bg-landscape::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7); /* White overlay to make text readable, similar to original */
+            z-index: 0;
+        }
+        .content-relative {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Font specific to the "DEBATE" text */
+        .font-debate {
+            font-family: 'Arial Black', Impact, sans-serif; /* Fallback for chunky font */
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body class="bg-bodyBg font-sans text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Top Header -->
+    <header class="bg-white py-3 px-6 flex justify-between items-center border-b border-gray-200">
+        <!-- Logo Section -->
+        <div class="flex items-center space-x-4">
+            <!-- Simulated HUFLIT Logo using an image placeholder for the yellow seal -->
+            <div class="w-16 h-16 flex items-center justify-center overflow-hidden">
+                <img src="Logo-Portal.png" alt="HUFLIT Logo" class="object-contain w-full h-full">
+            </div>
+            
+            <div class="flex flex-col">
+                <h1 class="text-brandBlue font-bold text-xl tracking-tight uppercase">HỆ THỐNG HỌC TRỰC TUYẾN</h1>
+                <p class="text-brandBlue text-sm tracking-wide">LEARNING MANAGEMENT SYSTEM</p>
+            </div>
+        </div>
+
+        <!-- User Actions Section -->
+        <div class="flex items-center space-x-4">
+            <!-- Notifications -->
+            <button class="relative w-8 h-8 rounded-full bg-gray-500 text-white flex items-center justify-center hover:bg-gray-600 transition-colors">
+                <i class="fa-regular fa-bell text-sm"></i>
+                <!-- Notification Badge -->
+                <span class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold px-1 rounded-full">33</span>
+            </button>
+            
+            <!-- Messages -->
+            <button class="w-8 h-8 rounded-full bg-gray-500 text-white flex items-center justify-center hover:bg-gray-600 transition-colors">
+                <i class="fa-regular fa-comment text-sm"></i>
+            </button>
+
+            <!-- User Dropdown -->
+            <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1 rounded-md transition-colors">
+                <span class="font-medium text-gray-700">Lương Đức Dân</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>
+                <!-- User Avatar -->
+                <div class="w-12 h-12 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold text-lg ml-2">
+                    LĐ
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-navBg text-white relative flex items-center">
+        <!-- Sidebar Toggle Button (Left side, slightly overlapping) -->
+        <button class="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 w-10 h-10 bg-gray-200 text-gray-600 rounded-r-md flex items-center justify-center hover:bg-gray-300 transition-colors shadow-sm z-10 border border-gray-300 border-l-0">
+            <i class="fa-solid fa-list-ul"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <div class="flex items-center w-full px-12 py-3">
+            <ul class="flex items-center space-x-6 text-sm font-medium">
+                <li>
+                    <a href="#" class="w-7 h-7 rounded bg-gray-500/50 flex items-center justify-center hover:bg-gray-500 transition-colors">
+                        <i class="fa-solid fa-home text-xs"></i>
+                    </a>
+                </li>
+                <li><a href="#" class="hover:text-gray-300 transition-colors">Dashboard</a></li>
+                <li><a href="#" class="hover:text-gray-300 transition-colors">My courses</a></li>
+                <li><a href="#" class="hover:text-gray-300 transition-colors">CVHT</a></li>
+                <li><a href="#" class="hover:text-gray-300 transition-colors">TARI AI</a></li>
+                <li><a href="#" class="hover:text-gray-300 transition-colors">Job Hub</a></li>
+                <li class="flex items-center space-x-1 cursor-pointer hover:text-gray-300 transition-colors">
+                    <span>Language/Ngôn ngữ</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </li>
+            </ul>
+
+            <!-- Search Icon -->
+            <div class="ml-auto">
+                <button class="w-8 h-8 rounded-full bg-gray-500/30 flex items-center justify-center hover:bg-gray-500/50 transition-colors">
+                    <i class="fa-solid fa-search text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow bg-landscape py-10 px-6 sm:px-12 lg:px-24">
+        <div class="content-relative max-w-5xl mx-auto">
+            
+            <!-- Course Title -->
+            <h2 class="text-3xl font-medium text-gray-800 mb-6 drop-shadow-sm">
+                261151028311-Kỹ năng Tranh luận
+            </h2>
+
+            <!-- Activity Card -->
+            <div class="bg-white rounded-md shadow-sm border border-gray-100 p-8">
+                
+                <!-- Lesson Title -->
+                <h3 class="text-4xl font-debate text-black tracking-tight mb-8">
+                    DEBATE - 07/10/2026 (19:30-21:00)
+                </h3>
+
+                <!-- Action Bar -->
+                <div class="bg-[#f0f4f8] rounded border border-gray-200 p-4 flex justify-center items-center mb-8">
+                    <button class="flex items-center space-x-2 bg-white border border-gray-300 rounded px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-50 transition-colors">
+                        <i class="fa-regular fa-circle-check text-gray-400"></i>
+                        <span>Mark as done</span>
+                    </button>
+                </div>
+
+                <!-- Meeting Link Button -->
+                <div class="flex justify-center mb-4">
+                    <!-- Replace the '#' in href with the actual Google Meet link when ready -->
+                    <a href="https://meet.google.com/mxx-zxxk-gco" class="inline-block bg-brandYellow hover:bg-yellow-500 text-white font-bold py-3 px-24 rounded-md transition-colors duration-200 text-lg shadow-sm">
+                        Vào học
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
